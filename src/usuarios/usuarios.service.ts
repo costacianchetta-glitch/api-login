@@ -19,7 +19,7 @@ export class UsuariosService {
         await this.databaseService.query(sql, [nome, email, senhaHash]);
         
         return {
-            mesagem:'Usuario cadastrado com sucesso!'
+            mensagem:'Usuario cadastrado com sucesso!'
         };
     }
 }

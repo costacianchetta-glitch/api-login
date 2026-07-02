@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<title>Login</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<main class="container">
+<section class="card">
+<h1>Login</h1>
+<p>Entre com seu email e senha.</p>
+ 
+      <form id="formLogin">
+<input type="email" id="emailLogin" placeholder="Email" required />
+<input type="password" id="senhaLogin" placeholder="Senha" required />
+ 
+        <button type="submit">Entrar</button>
+</form>
+ 
+      <p id="mensagemLogin" class="mensagem"></p>
+ 
+      <div id="areaToken" class="token-container">
+<h2>Token JWT gerado:</h2>
+<p id="token"></p>
+</div>
+ 
+      <a href="cadastro.html">Criar uma conta</a>
+</section>
+</main>
+ 
+  <script src="app.js"></script>
+</body>
+</html>
+ 
