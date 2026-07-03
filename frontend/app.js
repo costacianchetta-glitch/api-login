@@ -51,13 +51,62 @@ if (formLogin) {
  
       document.getElementById('areaToken').style.display = 'block';
       document.getElementById('token').textContent = dados.access_token;
+      document.getElementById('linkPerfil').style.display = 'block';
     } else {
       document.getElementById('mensagemLogin').textContent =
         dados.message || 'Erro ao realizar login.';
  
       document.getElementById('areaToken').style.display = 'none';
+      document.getElementById('linkPerfil').style.display = 'none';
     }
  
     formLogin.reset();
   });
 }
+const paginaPerfil = document.getElementById('paginaPerfil');
+ 
+if (paginaPerfil) {
+
+  const campoToken = document.getElementById('campoToken');
+  const botaoValidar = document.getElementById('botaoValidar');
+  const mensagemPerfil = document.getElementById('mensagemPerfil');
+  const dadosUsuario = document.getElementById('dadosUsuario');
+ 
+  botaoValidar.addEventListener('click', async function () {
+
+    const token = campoToken.value;
+ 
+    if (!token) {
+
+      mensagemPerfil.textContent = 'Informe um token para acessar.';
+      dadosUsuario.style.display = 'none';
+      return;
+
+    }
+ 
+    const resposta = await fetch(`${API_URL}/auth/privada`, {
+
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+
+    });
+ 
+    const dados = await resposta.json();
+    if (resposta.ok) {
+      mensagemPerfil.textContent = dados.mensagem;
+      document.getElementById('idUsuario').textContent =
+        dados.usuario?.sub || dados.usuario?.id || 'Não informado';
+      document.getElementById('emailUsuario').textContent =
+        dados.usuario?.email || 'Não informado';
+      dadosUsuario.style.display = 'block';
+    } else {
+      mensagemPerfil.textContent = dados.message || 'Acesso negado.';
+      dadosUsuario.style.display = 'none';
+    }
+
+  });
+
+}
+ 

@@ -155,4 +155,65 @@ a {
   color: #333;
 
 }
+textarea {
+
+  width: 100%;
+
+  min-height: 120px;
+
+  padding: 12px;
+
+  margin-top: 16px;
+
+  margin-bottom: 12px;
+
+  border: 1px solid #ccc;
+
+  border-radius: 8px;
+
+  font-size: 14px;
+
+  resize: vertical;
+
+}
+ 
+.perfil-info {
+
+  margin-top: 24px;
+
+  padding: 16px;
+
+  background: #f9fafb;
+
+  border: 1px solid #ddd;
+
+  border-radius: 8px;
+
+}
+ 
+.perfil-info h2 {
+
+  font-size: 18px;
+
+  margin-top: 0;
+
+  color: #2563eb;
+
+}
+ 
+.perfil-info p {
+
+  margin: 8px 0;
+
+  word-break: break-all;
+
+}
+ 
+.botao-sair {
+
+  width: 100%;
+
+  margin-top: 20px;
+
+}
  
